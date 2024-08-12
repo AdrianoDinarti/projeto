@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+  </head>
+  <body>
+    <h1>Minha Lista de Tarefas</h1>
+    <form action="/add" method="post">
+      <input type="text" name="conteudo" placeholder="Nova tarefa">
+      <input type="submit" value="Adicionar">
+    </form>
+    <ul>
+      {% for tarefa in tarefas %}
+        <li>
+          {{ tarefa.conteudo }}
+          <a href="/delete/{{ tarefa.id }}">Deletar</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
